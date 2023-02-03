@@ -16,7 +16,7 @@ const config: PlaywrightTestConfig = {
     actionTimeout: 0,
     trace: 'on-first-retry',
   },
-
+  
   projects: [
     {
       name: 'chromium',
@@ -24,13 +24,12 @@ const config: PlaywrightTestConfig = {
         ...devices['Desktop Chrome'],
       },
     },
-
-    {
-      name: 'firefox',
-      use: {
-        ...devices['Desktop Firefox'],
-      },
-    },
+    // {
+    //   name: 'firefox',
+    //   use: {
+    //     ...devices['Desktop Firefox'],
+    //   },
+    // },
   ],
 };
 

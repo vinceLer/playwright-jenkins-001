@@ -8,7 +8,7 @@ pipeline {
         NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
     }
     stages {
-        stage('install playwright') {
+        stage ('install playwright') {
             steps {
                 sh '''
                 npm i -D @playwright/test
@@ -16,11 +16,18 @@ pipeline {
                 '''
             }
         }
-        stage ('test') {
+        stage ('playwright help') {
+            steps {
+                sh '''
+                npx playwright test --help
+                '''
+            }
+        }
+        stage ('tests') {
             steps {
                 sh '''
                 npx playwright test --list
-                npx playwright test
+                npx playwright test --config=playwright.config.ts
                 '''
             }
         }
